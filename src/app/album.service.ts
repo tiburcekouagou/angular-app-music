@@ -12,6 +12,8 @@ export class AlbumService {
   private _albumList: List[] = ALBUM_LISTS;
   sendCurrentNumberPage = new Subject<number>();
 
+  subjectAlbum = new Subject<Album>();
+
   constructor() {}
 
   getAlbums(): Album[] {
@@ -56,5 +58,13 @@ export class AlbumService {
 
   currentPage(numberPage: number) {
     return this.sendCurrentNumberPage.next(numberPage);
+  }
+
+  switchOff(album: Album): void {
+    album.status = 'off';
+  }
+
+  switchOn(album: Album): void {
+    album.status = 'on';
   }
 }

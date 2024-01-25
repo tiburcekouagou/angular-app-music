@@ -7,6 +7,7 @@ import { AlbumService } from '../album.service';
 import { PaginateComponent } from '../paginate/paginate.component';
 import { SearchComponent } from '../search/search.component';
 import { RouterModule } from '@angular/router';
+import { AudioPlayerComponent } from '../audio-player/audio-player.component';
 
 @Component({
   selector: 'app-albums',
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MatIconModule,
     AlbumDetailsComponent,
+    AudioPlayerComponent,
     SearchComponent,
     RouterModule,
     PaginateComponent,

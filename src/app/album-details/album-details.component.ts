@@ -1,7 +1,15 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Album, List } from '../album';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from "@angular/material/icon";
+import { MatIconModule } from '@angular/material/icon';
 import { AlbumService } from '../album.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,7 +18,7 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './album-details.component.html',
-  styleUrl: './album-details.component.css'
+  styleUrl: './album-details.component.css',
 })
 export class AlbumDetailsComponent implements OnInit, OnChanges {
   @Input() album?: Album;
@@ -19,14 +27,9 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
   albumLists: List[] = [];
   songs: string[] = [];
 
-  constructor(
-    private albumService: AlbumService,
-    private route: ActivatedRoute,
-  ) { }
+  constructor(private albumService: AlbumService) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(): void {
     if (this.album) {
@@ -37,5 +40,6 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
 
   play(album: Album) {
     this.onPlay.emit(album);
+    this.albumService.subjectAlbum.next(album);
   }
 }

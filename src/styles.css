@@ -24,6 +24,7 @@
     .active {
         @apply bg-blue-700 text-white
     }
+
 }
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";

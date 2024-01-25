@@ -1,0 +1,14 @@
+<div *ngIf="playedAlbum" class="">
+  <p>Title: {{ playedAlbum.title }}, Artist: {{ playedAlbum.name }}</p>
+  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+    <div
+      class="bg-blue-600 h-2.5 rounded-full"
+      role="progressbar"
+      [style.width]="ratio + '%'"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow=""
+    ></div>
+  </div>
+  <p>{{ currentSongNumber }} / {{ total }}</p>
+</div>
