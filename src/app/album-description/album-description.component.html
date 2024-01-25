@@ -1,0 +1,21 @@
+<div *ngIf="album" class="mt-4">
+    <article class=" bg-white shadow-lg px-2 pb-10 rounded-lg">
+        <div class="font-bold bg-purple-200 py-2">{{ album.ref }}</div>
+        <div>
+            <h2 class="font-bold text-2xl my-4">
+                {{ album.title }}
+            </h2>
+            <p class="text-base">{{ album.description }}</p>
+
+            <p *ngIf="album.duration" class="my-4">Duration: {{album.duration}} minutes</p>
+            <p *ngIf="album.like" class="my-4">Like: {{album.like}}</p>
+            <ul class="flex flex-wrap gap-2 md:gap-4 my-4" *ngIf="album.tags">
+                <li class="" *ngFor="let tag of album.tags">
+                    <span class="bg-teal-400 text-white px-2 py-1">{{ tag }}</span>
+                </li>
+            </ul>
+            <!-- <img src="{{album.url}}" alt="description" class="my-4"> -->
+            <img src="https://unsplash.it/860/468" alt="description" class="my-4 block mx-auto max-w-full object-cover">
+        </div>
+    </article>
+</div>

@@ -1,7 +1,7 @@
-<div *ngIf="album" class="max-w-[300px] mx-auto bg-white shadow-lg px-2 py-6">
+<div *ngIf="album" class="max-w-full md:max-w-[300px] mx-auto bg-white shadow-lg px-2 py-6">
     <!-- <img *ngIf="album.url" src="{{album.url}}" alt="Group Music" class="w-full object-cover" /> -->
     <img *ngIf="album.url" src="https://unsplash.it/300/300" alt="Group Music"
-        class="max-w-full w-[300px] h-[300px] object-cover" />
+        class="max-w-full w-full md:w-[300px] h-[300px] object-cover" />
     <div class="">
         <h2 class="font-bold text-3xl my-4">{{album.title}}</h2>
         <p>Name: {{album.title}}</p>

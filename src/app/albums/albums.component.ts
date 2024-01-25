@@ -5,11 +5,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { AlbumDetailsComponent } from '../album-details/album-details.component';
 import { AlbumService } from '../album.service';
 import { SearchComponent } from '../search/search.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-albums',
   standalone: true,
-  imports: [CommonModule, MatIconModule, AlbumDetailsComponent, SearchComponent],
+  imports: [CommonModule, MatIconModule, AlbumDetailsComponent, SearchComponent, RouterModule],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.css',
 })
