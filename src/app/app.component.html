@@ -1,9 +1,16 @@
 <div class="max-w-7xl mx-auto">
   <header>
-    <nav></nav>
+    <nav>
+      <ul class="">
+        <li class="">
+          <a routerLink="/login" routerLinkActive="active" class="">Se connecter</a>
+        </li>
+      </ul>
+    </nav>
   </header>
-  
+
   <main>
-    <app-albums></app-albums>
+    <!-- <app-albums></app-albums> -->
+    <router-outlet></router-outlet>
   </main>
 </div>

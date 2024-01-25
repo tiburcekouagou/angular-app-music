@@ -5,7 +5,7 @@
 
   <div class="flex-1">
     <!-- SearchComponent -->
-    <app-search> </app-search>
+    <app-search (searchAlbums)="search($event)"></app-search>
 
     <h1 class="font-bold text-4xl">
       {{ titlePage }}

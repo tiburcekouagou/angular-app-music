@@ -27,8 +27,6 @@ export class AlbumsComponent implements OnInit {
     this.albums = this.albumService.paginate(0, 5);
   }
 
-
-
   onSelect(album: Album) {
     this.selectedAlbum = album;
   }
@@ -36,4 +34,13 @@ export class AlbumsComponent implements OnInit {
   playParent(e: Album) {
     this.status = e.id;
   }
+
+  search(searchAlbums: Album[]) {
+    if (searchAlbums) this.albums = searchAlbums;
+  }
+
+  onChangeEmit(album: Album[]) {
+    if (album) this.albums = album;
+  }
+
 }
