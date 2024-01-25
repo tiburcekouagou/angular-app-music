@@ -49,6 +49,7 @@ export class PaginateComponent implements OnInit {
   selectedPage(page: number) {
     this.currentPage = page;
     this.setPaginate.emit(this.paginate(page));
+    this.albumService.currentPage(this.currentPage); // mettre à jour les autres components qui souscrivent
   }
 
   next() {
@@ -58,6 +59,7 @@ export class PaginateComponent implements OnInit {
       this.currentPage++;
     }
     this.setPaginate.emit(this.paginate(this.currentPage));
+    this.albumService.currentPage(this.currentPage); // mettre à jour les autres components qui souscrivent
   }
   prev() {
     if (this.currentPage <= 1) {
@@ -66,6 +68,7 @@ export class PaginateComponent implements OnInit {
       this.currentPage--;
     }
     this.setPaginate.emit(this.paginate(this.currentPage));
+    this.albumService.currentPage(this.currentPage); // mettre à jour les autres components qui souscrivent
   }
 
   paginate(page: number) {

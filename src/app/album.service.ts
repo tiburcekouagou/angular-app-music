@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Album, List } from './album';
 import { ALBUMS, ALBUM_LISTS } from './mock-albums';
 import { environment } from '../environments/environment';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,7 @@ import { environment } from '../environments/environment';
 export class AlbumService {
   private _albums: Album[] = ALBUMS; // _ convention private et protected
   private _albumList: List[] = ALBUM_LISTS;
+  sendCurrentNumberPage = new Subject<number>();
 
   constructor() {}
 
@@ -50,5 +52,9 @@ export class AlbumService {
       throw "Attention la pagination n'est pas définie";
     }
     return environment.numberPage;
+  }
+
+  currentPage(numberPage: number) {
+    return this.sendCurrentNumberPage.next(numberPage);
   }
 }
