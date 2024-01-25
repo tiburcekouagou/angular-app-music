@@ -22,16 +22,12 @@
       >
       <ng-template [ngIf]="album.like">
         <!-- Icon -->
-        <mat-icon>
-          <span class="material-symbols-outlined"> favorite </span>
-        </mat-icon>
+        <mat-icon> favorite </mat-icon>
         <small>{{ album.like }}</small>
       </ng-template>
       <ng-template [ngIf]="album.duration">
         <!-- Icon -->
-        <mat-icon>
-          <span class="material-symbols-outlined"> timer </span>
-        </mat-icon>
+        <mat-icon> timer </mat-icon>
         <small>{{ album.duration }} min</small>
       </ng-template>
     </div>
