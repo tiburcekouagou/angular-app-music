@@ -32,4 +32,10 @@ export class AlbumService {
     // utilisez la méthode slice pour la pagination
     return this.getAlbums().slice(start, end);
   }
+
+  search(word: string): Album[] {
+    let re = new RegExp(word.trim(), 'gi');
+
+    return this._albums.filter(album => album.title.match(re) && album.title.match(re))
+  }
 }

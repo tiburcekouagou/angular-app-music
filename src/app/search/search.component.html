@@ -1,0 +1,6 @@
+<form action="" class="my-5 mx-2 flex gap-3" (ngSubmit)="onSubmit(formSearch)" #formSearch="ngForm">
+    <input type="search" class="flex-1 p-2 outline-none focus:outline-1 focus:outline-slate-400 rounded-md shadow-lg"
+        placeholder="..." aria-label="..." required ngModel name="search">
+    <button [disabled]="formSearch.invalid" type="submit"
+        class="text-white disabled:bg-gray-500 bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md shadow-lg">Search</button>
+</form>

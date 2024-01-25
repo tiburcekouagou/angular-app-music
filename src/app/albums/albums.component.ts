@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { AlbumDetailsComponent } from '../album-details/album-details.component';
 import { AlbumService } from '../album.service';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-albums',
   standalone: true,
-  imports: [CommonModule, MatIconModule, AlbumDetailsComponent],
+  imports: [CommonModule, MatIconModule, AlbumDetailsComponent, SearchComponent],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.css',
 })
