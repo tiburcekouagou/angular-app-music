@@ -1,10 +1,11 @@
 <div *ngIf="album" class="max-w-[300px] mx-auto bg-white shadow-lg px-2 py-6">
     <!-- <img *ngIf="album.url" src="{{album.url}}" alt="Group Music" class="w-full object-cover" /> -->
-    <img *ngIf="album.url" src="https://unsplash.it/300/300" alt="Group Music" class="w-full h-[300px] object-cover" />
+    <img *ngIf="album.url" src="https://unsplash.it/300/300" alt="Group Music"
+        class="max-w-full w-[300px] h-[300px] object-cover" />
     <div class="">
         <h2 class="font-bold text-3xl my-4">{{album.title}}</h2>
         <p>Name: {{album.title}}</p>
-        <button
+        <button (click)="play(album)"
             class="flex justify-center items-center gap-2 border text-white py-2 px-4 bg-blue-500 hover:bg-blue-700">
             Play
             <mat-icon>play_circle</mat-icon>
@@ -13,12 +14,8 @@
 
     <section class="my-8">
         <h3 class="bg-blue-700 text-white p-2">List of songs</h3>
-        <ul class="my-6 flex flex-col gap-4">
-            <li class="italic">Lorem ipsum dolor sit amet.</li>
-            <li class="italic">Incidunt aut ipsa nihil quia?</li>
-            <li class="italic">Non omnis dolore ea autem?</li>
-            <li class="italic">Suscipit iure facere repellendus. Blanditiis?</li>
-            <li class="italic">Modi impedit voluptatum aut corporis.</li>
+        <ul class="my-6 flex flex-col gap-4" *ngFor="let song of songs">
+            <li class="italic">{{song}}</li>
         </ul>
     </section>
 </div>

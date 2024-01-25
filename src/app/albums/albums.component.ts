@@ -16,8 +16,14 @@ export class AlbumsComponent {
   titlePage: string = 'Page principale Album Music';
   albums: Album[] = ALBUMS;
   selectedAlbum?: Album;
+  /** Variable pour gérer l'affichage des de l'album en cours de lecture */
+  status?: string;
 
   onSelect(album: Album) {
     this.selectedAlbum = album;
+  }
+
+  playParent(e: Album) {
+    this.status = e.id;
   }
 }
