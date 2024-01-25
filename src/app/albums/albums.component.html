@@ -1,0 +1,28 @@
+<!-- AlbumDetails -->
+<!-- Video -->
+
+<h1 class="font-bold text-4xl">{{titlePage}}</h1>
+<!-- Pagination -->
+<article class="" *ngFor="let album of albums">
+    <div class="font-bold">{{album.ref}}</div>
+    <div>
+        <h2 class="font-bold text-2xl">{{album.title}}</h2>
+        <p class="text-base">{{album.description}}</p>
+        <ul class="" *ngIf="album.tags">
+            <li class="" *ngFor="let tag of album.tags">
+                <span class="bg-teal-400 text-white">{{tag}}</span>
+            </li>
+        </ul>
+        <a href="#" class="border">en</a>
+        <ng-template [ngIf]="album.like">
+            <!-- Icon -->
+            <img src="" alt="" class="">
+            <small>{{album.like}}</small>
+        </ng-template>
+        <ng-template [ngIf]="album.duration">
+            <!-- Icon -->
+            <img src="" alt="" class="">
+            <small>{{album.duration}} min</small>
+        </ng-template>
+    </div>
+</article>
