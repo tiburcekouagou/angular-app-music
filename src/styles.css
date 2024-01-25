@@ -3,13 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+
     html,
     body {
         @apply text-gray-700 font-sans bg-[#f9f9f9]
+    }
+
+    .active {
+        @apply bg-white px-4 py-2 text-blue-700 font-bold rounded-md
     }
 }
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
