@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Album } from '../album';
-import { ALBUMS } from '../mock-albums';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { AlbumDetailsComponent } from '../album-details/album-details.component';
+import { AlbumService } from '../album.service';
 
 @Component({
   selector: 'app-albums',
@@ -12,12 +12,21 @@ import { AlbumDetailsComponent } from '../album-details/album-details.component'
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.css',
 })
-export class AlbumsComponent {
+export class AlbumsComponent implements OnInit {
   titlePage: string = 'Page principale Album Music';
-  albums: Album[] = ALBUMS;
+  albums!: Album[];
   selectedAlbum?: Album;
   /** Variable pour gérer l'affichage des de l'album en cours de lecture */
   status?: string;
+
+  constructor(private albumService: AlbumService) { }
+
+  ngOnInit(): void {
+    // this.albums = this.albumService.getAlbums();
+    this.albums = this.albumService.paginate(0, 5);
+  }
+
+
 
   onSelect(album: Album) {
     this.selectedAlbum = album;

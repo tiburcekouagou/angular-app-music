@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { Album, List } from '../album';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from "@angular/material/icon";
-import { ALBUM_LISTS } from '../mock-albums';
+import { AlbumService } from '../album.service';
 
 @Component({
   selector: 'app-album-details',
@@ -15,13 +15,14 @@ export class AlbumDetailsComponent implements OnChanges {
   @Input() album?: Album;
   @Output() onPlay: EventEmitter<Album> = new EventEmitter();
 
-  albumLists: List[] = ALBUM_LISTS;
+  albumLists: List[] = [];
   songs: string[] = [];
 
+  constructor(private albumService: AlbumService) { }
 
   ngOnChanges(): void {
     if (this.album) {
-      const selectedList = this.albumLists.find(elem => elem.id === this.album?.id);
+      const selectedList = this.albumService.getAlbumList(this.album.id);
       this.songs = selectedList?.list || [];
     }
   }
