@@ -4,13 +4,21 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { AlbumDetailsComponent } from '../album-details/album-details.component';
 import { AlbumService } from '../album.service';
+import { PaginateComponent } from '../paginate/paginate.component';
 import { SearchComponent } from '../search/search.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-albums',
   standalone: true,
-  imports: [CommonModule, MatIconModule, AlbumDetailsComponent, SearchComponent, RouterModule],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    AlbumDetailsComponent,
+    SearchComponent,
+    RouterModule,
+    PaginateComponent,
+  ],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.css',
 })
@@ -21,7 +29,7 @@ export class AlbumsComponent implements OnInit {
   /** Variable pour gérer l'affichage des de l'album en cours de lecture */
   status?: string;
 
-  constructor(private albumService: AlbumService) { }
+  constructor(private albumService: AlbumService) {}
 
   ngOnInit(): void {
     // this.albums = this.albumService.getAlbums();
@@ -44,4 +52,7 @@ export class AlbumsComponent implements OnInit {
     if (album) this.albums = album;
   }
 
+  paginate($event: { start: number; end: number }) {
+    this.albums = this.albumService.paginate($event.start, $event.end);
+  }
 }

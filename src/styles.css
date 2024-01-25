@@ -12,6 +12,18 @@
     .active {
         @apply bg-white px-4 py-2 text-blue-700 font-bold rounded-md
     }
+
+    .disabled {
+        @apply cursor-not-allowed
+    }
+
+    .page-link {
+        @apply border border-blue-400 px-4 py-2 hover:bg-blue-700 hover:text-white rounded-md 
+    }
+
+    .active {
+        @apply bg-blue-700 text-white
+    }
 }
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";

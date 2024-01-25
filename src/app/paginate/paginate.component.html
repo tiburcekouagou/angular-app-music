@@ -1,0 +1,19 @@
+<nav aria-label="Page navigation" class="my-10">
+  <ul *ngIf="numberPages > 1" class="flex flex-wrap justify-center gap-2">
+    <li [ngClass]="{ disabled: currentPage === 1 }">
+      <button (click)="prev()" class="page-link">Prev</button>
+    </li>
+    <li *ngFor="let page of pages">
+      <button
+        [ngClass]="{ active: currentPage === page }"
+        (click)="selectedPage(page)"
+        class="page-link"
+      >
+        {{ page }}
+      </button>
+    </li>
+    <li [ngClass]="{ disabled: currentPage === numberPages }">
+      <button (click)="next()" class="page-link">Next</button>
+    </li>
+  </ul>
+</nav>

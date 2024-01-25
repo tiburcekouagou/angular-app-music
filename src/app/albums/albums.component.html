@@ -1,6 +1,10 @@
 <div class="flex flex-col md:flex-row gap-4">
   <!-- AlbumDetails -->
-  <app-album-details class="" [album]="selectedAlbum" (onPlay)="playParent($event)"></app-album-details>
+  <app-album-details
+    class=""
+    [album]="selectedAlbum"
+    (onPlay)="playParent($event)"
+  ></app-album-details>
   <!-- Video -->
 
   <div class="flex-1">
@@ -11,22 +15,38 @@
       {{ titlePage }}
     </h1>
     <!-- Pagination -->
-    <article class="bg-white py-4 px-2 my-8 shadow-xl max-w-[700px] mx-auto" *ngFor="let album of albums">
+    <app-paginate (setPaginate)="paginate($event)"></app-paginate>
+    <!-- Albums -->
+    <article
+      class="bg-white py-4 px-2 my-8 shadow-xl max-w-[700px] mx-auto"
+      *ngFor="let album of albums"
+    >
       <div class="font-bold bg-purple-200 py-2">{{ album.ref }}</div>
       <div>
         <h2 class="font-bold text-2xl flex items-center gap-4">
-          <a routerLink="/album/{{album.id}}" class="hover:underline">{{ album.title }}</a>
-          <mat-icon *ngIf="status === album.id"
-            class="animate animate-pulse h-8 w-8 stroke-blue-700">play_circle</mat-icon>
+          <a routerLink="/album/{{ album.id }}" class="hover:underline">{{
+            album.title
+          }}</a>
+          <mat-icon
+            *ngIf="status === album.id"
+            class="animate animate-pulse h-8 w-8 stroke-blue-700"
+            >play_circle</mat-icon
+          >
         </h2>
         <p class="text-base">{{ album.description }}</p>
         <ul class="flex flex-wrap gap-2 md:gap-4 my-4" *ngIf="album.tags">
           <li class="" *ngFor="let tag of album.tags">
-            <span class="bg-teal-400 text-white px-2 py-1 space-y-2">{{ tag }}</span>
+            <span class="bg-teal-400 text-white px-2 py-1 space-y-2">{{
+              tag
+            }}</span>
           </li>
         </ul>
         <div class="my-4 flex gap-4 flex-wrap items-center">
-          <a href="#" class="border px-4 py-2 hover:bg-gray-600 hover:text-white">en</a>
+          <a
+            href="#"
+            class="border px-4 py-2 hover:bg-gray-600 hover:text-white"
+            >en</a
+          >
           <ng-template [ngIf]="album.like">
             <!-- Icon -->
             <mat-icon> favorite </mat-icon>
@@ -37,7 +57,12 @@
             <mat-icon> timer </mat-icon>
             <small>{{ album.duration }} min</small>
           </ng-template>
-          <button class="border px-4 py-2 hover:bg-gray-600 hover:text-white" (click)="onSelect(album)">Details</button>
+          <button
+            class="border px-4 py-2 hover:bg-gray-600 hover:text-white"
+            (click)="onSelect(album)"
+          >
+            Details
+          </button>
         </div>
       </div>
     </article>
