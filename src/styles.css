@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html,
+    body {
+        @apply text-gray-700 font-sans bg-[#f9f9f9]
+    }
+}
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";

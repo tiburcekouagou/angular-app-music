@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Album } from '../album';
 import { ALBUMS } from '../mock-albums';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-albums',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.css',
 })
