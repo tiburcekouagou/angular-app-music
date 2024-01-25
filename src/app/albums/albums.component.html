@@ -1,35 +1,36 @@
-<!-- AlbumDetails -->
-<!-- Video -->
+<div class="flex flex-col md:flex-row gap-4">
+  <!-- AlbumDetails -->
+  <app-album-details class="" [album]="selectedAlbum"></app-album-details>
+  <!-- Video -->
 
-<h1 class="font-bold text-4xl">{{ titlePage }}</h1>
-<!-- Pagination -->
-<article
-  class="bg-white py-4 px-2 my-8 shadow-xl max-w-[700px] mx-auto"
-  *ngFor="let album of albums"
->
-  <div class="font-bold bg-purple-200 py-2">{{ album.ref }}</div>
-  <div>
-    <h2 class="font-bold text-2xl">{{ album.title }}</h2>
-    <p class="text-base">{{ album.description }}</p>
-    <ul class="flex flex-wrap gap-2 md:gap-4 my-4" *ngIf="album.tags">
-      <li class="" *ngFor="let tag of album.tags">
-        <span class="bg-teal-400 text-white px-2 py-1">{{ tag }}</span>
-      </li>
-    </ul>
-    <div class="my-4 flex gap-4 flex-wrap items-center">
-      <a href="#" class="border px-4 py-2 hover:bg-gray-600 hover:text-white"
-        >en</a
-      >
-      <ng-template [ngIf]="album.like">
-        <!-- Icon -->
-        <mat-icon> favorite </mat-icon>
-        <small>{{ album.like }}</small>
-      </ng-template>
-      <ng-template [ngIf]="album.duration">
-        <!-- Icon -->
-        <mat-icon> timer </mat-icon>
-        <small>{{ album.duration }} min</small>
-      </ng-template>
-    </div>
+  <div class="flex-1">
+    <h1 class="font-bold text-4xl">{{ titlePage }}</h1>
+    <!-- Pagination -->
+    <article class="bg-white py-4 px-2 my-8 shadow-xl max-w-[700px] mx-auto" *ngFor="let album of albums">
+      <div class="font-bold bg-purple-200 py-2">{{ album.ref }}</div>
+      <div>
+        <h2 class="font-bold text-2xl">{{ album.title }}</h2>
+        <p class="text-base">{{ album.description }}</p>
+        <ul class="flex flex-wrap gap-2 md:gap-4 my-4" *ngIf="album.tags">
+          <li class="" *ngFor="let tag of album.tags">
+            <span class="bg-teal-400 text-white px-2 py-1">{{ tag }}</span>
+          </li>
+        </ul>
+        <div class="my-4 flex gap-4 flex-wrap items-center">
+          <a href="#" class="border px-4 py-2 hover:bg-gray-600 hover:text-white">en</a>
+          <ng-template [ngIf]="album.like">
+            <!-- Icon -->
+            <mat-icon> favorite </mat-icon>
+            <small>{{ album.like }}</small>
+          </ng-template>
+          <ng-template [ngIf]="album.duration">
+            <!-- Icon -->
+            <mat-icon> timer </mat-icon>
+            <small>{{ album.duration }} min</small>
+          </ng-template>
+          <button class="border px-4 py-2 hover:bg-gray-600 hover:text-white" (click)="onSelect(album)">Details</button>
+        </div>
+      </div>
+    </article>
   </div>
-</article>
+</div>
