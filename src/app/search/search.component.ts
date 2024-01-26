@@ -8,18 +8,20 @@ import { Album } from '../album';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  styleUrl: './search.component.css',
 })
 export class SearchComponent {
   @Output() searchAlbums: EventEmitter<Album[]> = new EventEmitter(); // emission des donnees
 
-  constructor(private albumService: AlbumService) { }
+  constructor(private albumService: AlbumService) {}
 
   onSubmit(formSearch: NgForm) {
-    const results = this.albumService.search(formSearch.value['search']);
-    if (results.length > 0) {
-      this.searchAlbums.emit(results);
-    }
+    let results: Album[];
+    this.albumService.search(formSearch.value['search']).subscribe((albs) => {
+      results = albs;
+      if (results.length > 0) {
+        this.searchAlbums.emit(results);
+      }
+    });
   }
-
 }

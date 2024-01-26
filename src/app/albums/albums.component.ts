@@ -34,8 +34,10 @@ export class AlbumsComponent implements OnInit {
   constructor(private albumService: AlbumService) {}
 
   ngOnInit(): void {
-    // this.albums = this.albumService.getAlbums();
-    this.albums = this.albumService.paginate(0, 5);
+    this.albumService.getAlbums().subscribe((albums) => {
+      this.albums = albums;
+    });
+    this.albumService.paginate(0, 5).subscribe((alb) => (this.albums = alb));
   }
 
   onSelect(album: Album) {
@@ -55,6 +57,8 @@ export class AlbumsComponent implements OnInit {
   }
 
   paginate($event: { start: number; end: number }) {
-    this.albums = this.albumService.paginate($event.start, $event.end);
+    this.albumService
+      .paginate($event.start, $event.end)
+      .subscribe((albs) => (this.albums = albs));
   }
 }

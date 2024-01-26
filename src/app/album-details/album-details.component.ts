@@ -33,8 +33,10 @@ export class AlbumDetailsComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     if (this.album) {
-      const selectedList = this.albumService.getAlbumList(this.album.id);
-      this.songs = selectedList?.list || [];
+      this.albumService.getAlbumList(this.album.id).subscribe((albs) => {
+        const selectedList = albs;
+        this.songs = selectedList?.list || [];
+      });
     }
   }
 
