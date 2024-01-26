@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
 import { environment } from '../environments/environment';
+import { getDatabase } from 'firebase/database';
+import { getAuth } from "firebase/auth";
 
 // get the project configurations
 const firebaseConfig = environment.firebaseConfig;
@@ -11,4 +12,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to service
 const db = getDatabase(app);
 
-export { app, db };
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
+
+export { app, db, auth };

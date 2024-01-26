@@ -1,22 +1,24 @@
-<form class="mt-10 max-w-[500px] mx-auto bg-white px-4 py-8 rounded-md shadow-md">
+<form class="mt-10 max-w-[500px] mx-auto bg-white px-4 py-8 rounded-md shadow-md" (ngSubmit)="onSubmit(formLogin)" #formLogin="ngForm">
+    <p *ngIf="messageError" class="bg-red-100 text-red-700 px-4 py-2">{{messageError}}</p>
+    
     <div class="my-4">
         <label for="email">Email address</label>
         <input class="block p-2 bg-slate-100 rounded-sm w-full placeholder:font-mono placeholder:font-bold" type="text"
-            id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+            id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" ngModel email required>
         <small id="emailHelp">We'll never share your email with anyone else.</small>
     </div>
     <div class="my-4">
         <label for="pwd">Password</label>
         <input class="block p-2 bg-slate-100 rounded-sm w-full placeholder:font-mono placeholder:font-bold"
-            type="password" id="pwd" placeholder="Password">
+            type="password" id="pwd" placeholder="Password" name="password" ngModel required>
     </div>
 
     <div class="my-4 flex ">
         <input type="checkbox" id="checkout"
-            class="mr-4 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800">
-        <label for="checkout">Check me out</label>
+            class="mr-4 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" name="logged" ngModel>
+        <label for="checkout">Stay logged in</label>
     </div>
 
-    <button type="submit"
+    <button [disabled]="formLogin.invalid" type="submit"
         class="bg-blue-500 hover:bg-blue-700 py-2 px-8 text-white font-bold rounded-md">Submit</button>
 </form>

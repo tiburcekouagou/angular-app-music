@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AlbumsComponent } from './albums/albums.component';
 import { LoginComponent } from './login/login.component';
 import { AlbumDescriptionComponent } from './album-description/album-description.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
@@ -20,5 +21,9 @@ export const routes: Routes = [
     {
         path: 'album/:id',
         component: AlbumDescriptionComponent,
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent
     }
 ];
